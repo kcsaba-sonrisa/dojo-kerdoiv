@@ -4,7 +4,7 @@ Kérdőív alkalmazást kell fejleszteni melyben vannak Kérdések. Ezekhez a k�
 Jelenlegi probléma az, hogy ezek mind egy adatbázis bizonyos tábláiban szerepelnek. A feladat az, hogy ezeket a kérdéseket válaszokat
 egy előre megadott struktúrában kell kinyomtatni. A feladat részleteit a KerdoivApp illetve a ValaszPrintService osztályokban lehet megtalálni
 
-##OBJEKTUMOK:
+## OBJEKTUMOK:
 
 * KÉRDÉS: tartalmazza magáz a kérdést és hogy hogy milyen típusú
 * KÉRDES_TIPUS: 
@@ -14,7 +14,7 @@ egy előre megadott struktúrában kell kinyomtatni. A feladat részleteit a Ker
 * VÁLASZ: leírja hogy az adott kérdésre mely felhasználó mit válaszolt
 * KerdoivSor: Ilyen formában kell kigyüjteni az eredményeket felhasznaló és kérdés szerint
 
-##TÁBLÁK:
+## TÁBLÁK:
 * Kérdés
 * Felhasznaló
 * Válasz
