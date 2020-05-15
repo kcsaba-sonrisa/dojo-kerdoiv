@@ -35,11 +35,9 @@ public class ValaszPrintService {
     public static List<KerdoivSor> getSzabadszavasSorok(){
         List<KerdoivSor> result = new ArrayList<>();
         /**
-         * Második feladat: Implementáljuk ezt a metódust úgy, hogy kigyüjtse a szabadszavas kérdéseket
-         * és a hozzá tartozó válaszokat rendezze felhasználó szerint
-         *
-         * Kívánt eredmény:
-         *
+         * Második feladat: Implementáljuk ezt a metódust úgy, hogy logolja ki a konzolra az adatbázisban található
+         * szabadszavas kérdéseket a hozzá tartozó válaszokkal úgy, hogy a válaszokat felhasználó szerint rendezi.
+         * A kapott eredmény az alábbi kell legyen:
          *
          * Megy a biznic?
          * =========================
@@ -70,11 +68,9 @@ public class ValaszPrintService {
     public static List<KerdoivSor> getFeleletvalasztoSorok() {
         List<KerdoivSor> result = new ArrayList<>();
         /**
-         * Harmadik feladat: Implementáljuk ezt a metódust úgy, hogy kigyüjtse a feleletválasztós kérdéseket
-         * és a hozzá tartozó válaszokat rendezze felhasználó szerint
-         *
-         * Kívánt eredmény:
-         *
+         * Harmadik feladat: Implementáljuk ezt a metódust úgy, hogy logolja ki a konzolra az adatbázisban található
+         * feleletválasztós kérdéseket és a hozzá tartozó válaszokat úgy, hogy a válaszokat felhasználó szerint rendezi.
+         * A kapott eredmény az alábbi kell legyen:
          *
          * Hol veszünk idén olajmezőket?
          * =========================
@@ -107,11 +103,9 @@ public class ValaszPrintService {
     public static List<KerdoivSor> getSkalaSorok(){
         List<KerdoivSor> result = new ArrayList<>();
         /**
-         * Negyedik feladat: Implementáljuk ezt a metódust úgy, hogy kigyüjtse a skálázós kérdéseket
-         * és a hozzá tartozó válaszokat rendezze felhasználó szerint
-         *
-         * Kívánt eredmény:
-         *
+         * Negyedik feladat: Implementáljuk ezt a metódust úgy, hogy logolja ki a konzolra az adatbázisban található
+         * skálázós kérdéseket és a hozzá tartozó válaszokat úgy, hogy a válaszokat felhasználó szerint rendezi.
+         * A kapott eredmény az alábbi kell legyen:
          *
          * Mennyire vagyunk gazdagok?
          * =========================

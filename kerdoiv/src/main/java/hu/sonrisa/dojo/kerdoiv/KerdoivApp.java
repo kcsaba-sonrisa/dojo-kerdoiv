@@ -58,24 +58,24 @@ public class KerdoivApp {
     private static void printSorok(List<KerdoivSor> sorok) {
 
         /**
-         * ELSŐ FELADAT: A következő imput jelenjen meg ha lefuttatom az alkalmazást
-         * Ebben a metódusban implementáljuk a megoldást
+         * ELSŐ FELADAT: Implementáljuk ezt a metódust úgy, hogy az inputként megkapott kérdőív sorokat
+         * a lenti példában megadott formában írassuk ki a konzolra:
          *
-        Kerdes1
-                =========================
-        Andi: A1, A2, A3
-        Béla: B1, B2, B3
-        Cecil: C1, C2, C3
-
-        Kérdés3
-                =========================
-        Cecil: F1, F2, F3
-
-        Kérdés2
-                =========================
-        Béla: D1, D2, D3
-        Andi: E1, E2, E3
-
+         * Kerdes1
+         *        =========================
+         * Andi: A1, A2, A3
+         * Béla: B1, B2, B3
+         * Cecil: C1, C2, C3
+         *
+         * Kérdés3
+         *       =========================
+         * Cecil: F1, F2, F3
+         *
+         * Kérdés2
+         *       =========================
+         * Béla: D1, D2, D3
+         * Andi: E1, E2, E3
+         *
          */
     }
 }
