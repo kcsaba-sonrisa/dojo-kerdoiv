@@ -23,6 +23,7 @@ import hu.sonrisa.dojo.kerdoiv.service.ValaszPrintService;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author denyiel
@@ -56,23 +57,33 @@ public class KerdoivApp {
      * @param sorok
      */
     private static void printSorok(List<KerdoivSor> sorok) {
+        sorok.stream().collect(Collectors.groupingBy(KerdoivSor::getKerdes)).entrySet().forEach(kerdesSorEntry -> {
+            System.out.println(kerdesSorEntry.getKey());
+            System.out.println("=========================");
 
+            kerdesSorEntry.getValue().forEach(kerdoivSor -> {
+                System.out.print(kerdoivSor.getFelhasznaloNev() + ": ");
+                System.out.println(kerdoivSor.getValaszadoValasz().stream().collect(Collectors.joining(", ")));
+            });
+            System.out.println();
+        });    
+         
         /**
          * ELSŐ FELADAT: Implementáljuk ezt a metódust úgy, hogy az inputként megkapott kérdőív sorokat
          * a lenti példában megadott formában írassuk ki a konzolra:
          *
          * Kerdes1
-         *        =========================
+         * =========================
          * Andi: A1, A2, A3
          * Béla: B1, B2, B3
          * Cecil: C1, C2, C3
          *
          * Kérdés3
-         *       =========================
+         * =========================
          * Cecil: F1, F2, F3
          *
          * Kérdés2
-         *       =========================
+         * =========================
          * Béla: D1, D2, D3
          * Andi: E1, E2, E3
          *

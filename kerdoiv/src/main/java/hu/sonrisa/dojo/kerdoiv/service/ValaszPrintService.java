@@ -18,22 +18,49 @@
  */
 package hu.sonrisa.dojo.kerdoiv.service;
 
-import hu.sonrisa.dojo.kerdoiv.model.KerdoivSor;
+import hu.sonrisa.dojo.kerdoiv.model.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.Collections;
 
 /**
  * @author denyiel
  */
 public class ValaszPrintService {
 
+    public static List<KerdoivSor> getKerdoIvSorokByKerdesTipus(final KerdesTipus kerdesTipus) {
+        return KerdesService.findAll().stream()
+                .filter(kerdes -> kerdes.getTipus() == kerdesTipus)
+                .flatMap(kerdes -> { 
+                    final List<Valasz> valaszok = ValaszService.findByKerdesId(kerdes.getId());
+
+                    return valaszok.stream()
+                        .collect(Collectors.groupingBy(Valasz::getFelhasznaloId))
+                        .entrySet()
+                        .stream()
+                        .map(valasz -> {
+                            final String valaszStr = valasz.getValaszSzoveg() != null
+                                ? valasz.getValaszSzoveg()
+                                : kerdes.getValaszlehetosegek().get(valasz.getValaszErtek()).getValasz();
+                            
+                            return KerdoivSor.builder()
+                                .kerdes(kerdes.getKerdes())
+                                .felhasznaloNev(FelhasznaloService.getFelhasznaloById(valasz.getFelhasznaloId()).getNev())
+                                .valaszadoValasz(Collections.singletonList(valaszStr))
+                                .build();
+                        });
+                })
+                .collect(Collectors.toList());
+    }
+
     /**
      * Visszadaja KerdoivSor formájában egy adott Szabadszavas Kérdésre egy adott Felhasználó által válaszolt Válaszok listáját
      * @return
      */
     public static List<KerdoivSor> getSzabadszavasSorok(){
-        List<KerdoivSor> result = new ArrayList<>();
+        return getKerdoIvSorokByKerdesTipus(KerdesTipus.SZABAD_SZOVEGES);
         /**
          * Második feladat: Implementáljuk ezt a metódust úgy, hogy logolja ki a konzolra az adatbázisban található
          * szabadszavas kérdéseket a hozzá tartozó válaszokkal úgy, hogy a válaszokat felhasználó szerint rendezi.
@@ -58,7 +85,6 @@ public class ValaszPrintService {
          * Szamanta: Whiskey
          * Bobi: Akad
          */
-        return result;
     }
 
     /**
@@ -66,7 +92,7 @@ public class ValaszPrintService {
      * @return
      */
     public static List<KerdoivSor> getFeleletvalasztoSorok() {
-        List<KerdoivSor> result = new ArrayList<>();
+       return getKerdoIvSorokByKerdesTipus(KerdesTipus.FELELET_VALASZTO);
         /**
          * Harmadik feladat: Implementáljuk ezt a metódust úgy, hogy logolja ki a konzolra az adatbázisban található
          * feleletválasztós kérdéseket és a hozzá tartozó válaszokat úgy, hogy a válaszokat felhasználó szerint rendezi.
@@ -93,7 +119,6 @@ public class ValaszPrintService {
          * Bobi: Sárga
          * Elli: Piros
          */
-        return result;
     }
 
     /**
